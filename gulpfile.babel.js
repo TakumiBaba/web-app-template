@@ -17,7 +17,7 @@ gulp.task('js:eslint', ()=> {
 });
 
 gulp.task('js:test', ()=> {
-  return gulp.src('test/**/*.js', {read: false})
+  return gulp.src('tests/**/*.js', {read: false})
   .pipe(mocha({reporter: 'nyan'}));
 
 });
