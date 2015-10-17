@@ -18,8 +18,8 @@ gulp.task('js:eslint', ()=> {
 
 gulp.task('js:test', ()=> {
   return gulp.src('tests/**/*.js', {read: false})
+  .pipe(plumber())
   .pipe(mocha({reporter: 'nyan'}));
-
 });
 
 gulp.task('js:build', ()=> {
