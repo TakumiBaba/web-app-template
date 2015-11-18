@@ -3,10 +3,7 @@ import eslint from 'gulp-eslint';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import mocha from 'gulp-mocha';
-import source from 'vinyl-source-stream';
-import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
-import concat from 'gulp-concat';
 
 gulp.task('js:eslint', ()=> {
   return gulp.src('src/**/*.js')
@@ -19,20 +16,12 @@ gulp.task('js:eslint', ()=> {
 gulp.task('js:test', ()=> {
   return gulp.src('tests/**/*.js', {read: false})
   .pipe(plumber())
-  .pipe(mocha({reporter: 'nyan'}));
-});
-
-gulp.task('js:build', ()=> {
-  return gulp.src('./src/index.js')
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(concat("core.js"))
-  .pipe(sourcemaps.write("."))
-  .pipe(gulp.dest("./"));
+  .pipe(mocha({reporter: 'spec'}));
 });
 
 gulp.task('watch', ()=> {
   gulp.watch('./src/**/*.js', ['js:eslint', 'js:test', 'js:build'])
+  gulp.watch('./tests/**/*.js', ['js:test'])
 });
 
 

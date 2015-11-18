@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;IAAM,aAAa,YAAb,aAAa;wBAAb,aAAa;;;qBAIJ,aAAa","file":"core.js","sourcesContent":["class TemplateClass {\n\n}\n\nexport default TemplateClass;\n"],"sourceRoot":"/source/"}
